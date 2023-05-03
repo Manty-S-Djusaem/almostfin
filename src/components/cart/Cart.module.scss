@@ -1,0 +1,116 @@
+.photo{
+    img{width: 150px;
+    height: 20==150px;}
+    
+}
+
+.maincards{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cardbody{
+    display: flex;
+    width: 600px;
+    padding-left:20px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    div{
+        margin-bottom:20px;
+    }
+
+    button.btncart{
+        border: 2px solid rgb(0, 0, 0);
+        background-color:#000000;
+        color:white;
+    }
+
+    button.btncart :active{
+        background-color: white;
+        color: #000000;
+    }
+}
+
+.line {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid rgba(105, 105, 105, 1);
+    width: 100%;
+}
+
+.line2 {
+    display: flex;
+    justify-content: center;
+    border-left: 1px solid rgba(105, 105, 105, 1);
+    width: 100%;
+    margin-right: 40px;
+}
+
+.text1{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .line {
+//     border-top: 2px solid rgba(0, 0, 0, 0.3);
+//     width: 1100px;
+//     margin: 0 auto 0;
+// }
+
+// .cart {
+//     border: 8px solid rgba(139, 148, 244, 1);
+
+//     text-align: center;
+//     margin: auto;
+//     background-color: white;
+//     padding: 100px;
+//     height: 347px;
+// a{
+//     text-decoration: none;
+//     color:black;
+// }
+//     button {
+//         width: 200px;
+//         height: 52px;
+//         background: rgba(200, 205, 249, 1);
+//         border-radius: 50px;
+//         font-size: 15px;
+//         margin-bottom: 24px;
+//         margin: 0px 54px;
+//         margin-top: 24px;
+//         font-weight: 600;
+
+//     }
+// }
+
+// @media (max-width:767px) {
+
+//     .line {
+//         width: 100px;
+//     }
+//     .cart button {
+//         margin-left:-20px;
+//     }
+// }
+
+// .pr{
+//     color: white;
+// }

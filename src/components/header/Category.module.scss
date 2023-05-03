@@ -1,0 +1,142 @@
+.photo{
+    img{width: 200px;
+    height: 200px;}
+    
+}
+
+.maincards{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cardbody{
+    display: flex;
+    width: 600px;
+    padding-left:20px;
+    flex-wrap: wrap;
+    div{
+        margin-bottom:20px;
+    }
+
+    button.btncart{
+        border: 2px solid rgb(0, 0, 0);
+        background-color:#000000;
+        color:white;
+    }
+
+    button.btncart :active{
+        background-color: white;
+        color: #000000;
+    }
+}
+
+.line {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid rgba(105, 105, 105, 1);
+    width: 100%;
+}
+
+.line2 {
+    display: flex;
+    justify-content: center;
+    border-left: 1px solid rgba(105, 105, 105, 1);
+    width: 100%;
+    margin-right: 40px;
+}
+
+.text1{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .container {
+
+//     .text1 {
+//         display: flex;
+//         justify-content: center;
+//         color: #c5c6c7;
+//     }
+
+//     .main {
+//         display: flex;
+
+//         img {
+//             display: flex;
+//             max-width: 250px;
+//             display: flex;
+//         }
+
+//         a {
+//             text-decoration: none;
+//             color: #0e1111;
+//             display: flex;
+//         }
+//     }
+// }
+
+// .maincards{
+//     margin-left:55px;
+//     border: solid black 1px;
+//     display: flex;
+//     flex-wrap: nowrap;
+//     // justify-content: start;
+//     // align-items: center;
+
+// }
+// .name{
+//     color: #c5c6c7;
+//     margin-bottom: 5px;
+// }
+
+// .description{
+//     color: #c5c6c7;
+//     margin-bottom: 5px;
+// }
+
+// .price{
+//     display: flex;
+//     color: #66fcf1;
+//     margin-top: 2px;
+//     margin-bottom: 4px;
+//     text-decoration: overline;
+//     font-size: 15px;
+// }
+
+// .btncart{
+//     color: #66fcf1;
+//     border: solid 1px #66fcf1;
+//     margin-bottom: 5px;
+// }
