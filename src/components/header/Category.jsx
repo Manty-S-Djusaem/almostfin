@@ -30,7 +30,7 @@ const Category = (props) => {
 
     function addToCart(event) {
         const currentCard = event.currentTarget.closest('.card')
-
+    
         if (box.find(item => item.id === currentCard.querySelector('.id-card').dataset.id)) {
             const index = box.findIndex(item => item.id === currentCard.querySelector('.id-card').dataset.id)
             let nexBox = box;
@@ -48,6 +48,7 @@ const Category = (props) => {
                     count: 1
                 }
             ])
+            alert('Товар успешно добавлен в корзину!')
         }
     }
 

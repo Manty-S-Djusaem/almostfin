@@ -1,27 +1,31 @@
-import module from './Header.module.scss'
-import logo from '../assets/logo.png'
-import heart from '../assets/heart.png'
-import lupa from '../assets/lupa.png'
-import cart from '../assets/cart_img.png'
-import vector from '../assets/vector.png'
-import { RouterProvider, Routes, Route, Link } from 'react-router-dom'
-import router from '/src/app/index.jsx'
-import { useState } from 'react'
-import { auth } from '/src/app/firebase'
-import { useAuthState } from 'react-firebase-hooks/auth'
-import home from '../assets/Home.png'
-import bookmark from '../assets/Bookmark.png'
-
-
+import module from './Header.module.scss';
+import logo from '../assets/logo.png';
+import heart from '../assets/heart.png';
+import lupa from '../assets/lupa.png';
+import cart from '../assets/cart_img.png';
+import vector from '../assets/vector.png';
+import { RouterProvider, Routes, Route, Link } from 'react-router-dom';
+import router from '/src/app/index.jsx';
+import { useState } from 'react';
+import { auth } from '/src/app/firebase';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import home from '../assets/Home.png';
+import bookmark from '../assets/Bookmark.png';
 
 const Header = (Props) => {
-    const [burger, setBurger] = useState(false)
+    const [burger, setBurger] = useState(false);
+    const [user, loading, error] = useAuthState(auth);
 
     function burgerMenu(e) {
-        setBurger(!burger)
+        setBurger(!burger);
     }
 
-    const [user, loading, error] = useAuthState(auth);
+    function handleCatalogClick(e) {
+        if (!user) {
+            e.preventDefault();
+            alert('Необходимо войти в аккаунт');
+        }
+    }
 
     if (user) {
         if (user.emailVerified)
@@ -31,13 +35,13 @@ const Header = (Props) => {
                         <Link to='/'><h3> SWEVEN</h3></Link>
                         <div className={module.container}>
                             <Link to='/'>ГЛАВНАЯ</Link>
-                            <Link to='/catalogue'>КАТАЛОГ</Link>
+                            <Link to='/catalogue' onClick={handleCatalogClick}>КАТАЛОГ</Link>
                         </div>
 
 
                         {burger && (<div className={module.container_burger}>
                             <a href='/'>ГЛАВНАЯ</a>
-                            <a href="/catalogue">КАТАЛОГ</a>
+                            <a href="/catalogue" onClick={handleCatalogClick}>КАТАЛОГ</a>
                         </div>)}
                         <div className={module.burger} onClick={burgerMenu}>
                             <i class="fa-solid fa-bars"></i>
@@ -60,11 +64,11 @@ const Header = (Props) => {
                 <Link to='/'><h3> SWEVEN</h3></Link>
                 <div className={module.container}>
                     <Link to='/'>ГЛАВНАЯ</Link>
-                    <Link to='/catalogue'>КАТЕГОРИИ</Link>
+                    <Link to='/catalogue' onClick={handleCatalogClick}>КАТЕГОРИИ</Link>
                 </div>
                 {burger && (<div className={module.container_burger}>
                     <a href='/'>ГЛАВНАЯ</a>
-                    <a href="/catalogue">КАТЕГОРИИ</a>
+                    <a href="/catalogue" onClick={handleCatalogClick}>КАТЕГОРИИ</a>
                 </div>)}
                 <div className={module.burger} onClick={burgerMenu}>
                     <i class="fa-solid fa-bars"></i>
@@ -78,4 +82,4 @@ const Header = (Props) => {
     );
 };
 
-export default Header
+export default Header;

@@ -1,5 +1,3 @@
-import google_image from '../../assets/google.png'
-import facebook_image from '../../assets/facebook.png'
 import {auth, provider, providerFacebook} from '../../app/firebase'
 import {signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth'
 import module from './Authorization.module.scss'
@@ -8,7 +6,6 @@ import Email_icon from '../assets/email_icon.png'
 import google from '../assets/google.png'
 import facebook from '../assets/facebook.png' 
 import key_icon from '../assets/key_icon.png'
-import Password from './Password-recovery'
 import { Link } from 'react-router-dom'
 
 const Authorization = (props) => {

@@ -4,6 +4,7 @@ import Modal from "../components/Modal";
 import { useAuthState } from "react-firebase-hooks/auth"
 import { auth } from '../app/firebase'
 import module from './Main.module.scss'
+import { useEffect, useState } from "react";
 import back from '../assets/mainback.jpg'
 import { Link } from "react-router-dom";
 
@@ -58,9 +59,7 @@ const Main = (props) => {
 
                     <p className={module.pp}></p>
 
-                    <div className={module.photo1}>
-                        {/* <img src="https://images.pexels.com/photos/460736/pexels-photo-460736.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"></img> */}
-                    </div>
+
                 </div>
 
             )
@@ -89,8 +88,6 @@ const Main = (props) => {
             </div>
         )
     }
-}; <div className="main_btn">
-    {/* <button className={module.btn}><Link to='/catalogue'>Каталог</Link></button> */}
-</div>
+};
 
 export default Main;
