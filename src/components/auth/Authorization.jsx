@@ -6,7 +6,7 @@ import Email_icon from '../assets/email_icon.png'
 import google from '../assets/google.png'
 import facebook from '../assets/facebook.png' 
 import key_icon from '../assets/key_icon.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Authorization = (props) => {
     const [login, setLogin] = useState('')

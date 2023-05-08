@@ -1,5 +1,5 @@
 {
-  "name": "artur",
+  "name": "sweven",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -26,6 +26,7 @@
     "react-firebase-hooks": "^5.1.1",
     "react-hook-form": "^7.43.1",
     "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1",
     "sort-by": "^1.2.0",
     "use-history": "^1.4.1",
     "use-state-effect": "^1.0.1"

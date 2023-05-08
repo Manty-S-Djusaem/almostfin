@@ -64,11 +64,11 @@ const Header = (Props) => {
                 <Link to='/'><h3> SWEVEN</h3></Link>
                 <div className={module.container}>
                     <Link to='/'>ГЛАВНАЯ</Link>
-                    <Link to='/catalogue' onClick={handleCatalogClick}>КАТЕГОРИИ</Link>
+                    <Link to='/catalogue' onClick={handleCatalogClick}>КАТАЛОГ</Link>
                 </div>
                 {burger && (<div className={module.container_burger}>
                     <a href='/'>ГЛАВНАЯ</a>
-                    <a href="/catalogue" onClick={handleCatalogClick}>КАТЕГОРИИ</a>
+                    <a href="/catalogue" onClick={handleCatalogClick}>КАТАЛОГ</a>
                 </div>)}
                 <div className={module.burger} onClick={burgerMenu}>
                     <i class="fa-solid fa-bars"></i>
