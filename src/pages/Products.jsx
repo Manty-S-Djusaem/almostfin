@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from "react-router-dom";
 import { useEffect, useContext } from "react";
-import { collection, query, getDocs, where } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { database } from '../app/firebase';
 import { useState } from "react";
 import Card from 'react-bootstrap/Card';
@@ -12,21 +12,20 @@ import module from './Products.module.scss'
 
 const Products = (props) => {
     const id = useParams()
-    const [towars, setTowars] = useState([])
+    const [towar, setTowar] = useState(null)
     const [box, setBox] = useContext(ContextBox)
     useEffect(() => {
         getData()
     }, [])
 
     async function getData() {
-        const q = query(collection(database, "product"), where("idCategory", "==", id.id));
-        const allTowars = await getDocs(q)
-        let towars = []
-        allTowars.forEach(product => {
-            towars.push({ ...product.data(), id: product.id })
-        })
-        setTowars(towars)
-        console.log(towars)
+        const productRef = doc(database, "product", id.id);
+        const productDoc = await getDoc(productRef);
+        if (productDoc.exists()) {
+            setTowar({ ...productDoc.data(), id: productDoc.id })
+        } else {
+            console.log("No such document!");
+        }
     }
 
     function addToCart(event) {
@@ -52,42 +51,41 @@ const Products = (props) => {
         }
     }
 
-    const viewTowars = towars.map((towars, index) => {
-        return (
-            <div className={module.maincards}>
-                <Card text="123123" key={index}>
-                    <div className="id-card" data-id={towars.id}></div>
-                    <Card.Img variant="top" src={towars.photo} />
-                    <Card.Body>
-                        <div className={module.name}>
-                            <Card.Title>
-                                {towars.name}
-                            </Card.Title>
-                        </div>
-                        <div className={module.description}>
-                            <Card.Text>
-                                {towars.description}
-                            </Card.Text>
-                        </div>
-                    </Card.Body>
-                    <div className={module.price}>
-                        <Card.Footer>
-                            <div className={module.price}><span className="price-product">{towars.price}</span>$</div>
-                        </Card.Footer>
+    const viewTowar = towar ? (
+        <div className={module.maincards}>
+            <Card>
+                <div className="id-card" data-id={towar.id}></div>
+                <Card.Img variant="top" src={towar.photo} />
+                <Card.Body>
+                    <div className={module.name}>
+                        <Card.Title>
+                            {towar.name}
+                        </Card.Title>
                     </div>
-                </Card>
-            </div>
-        )
-    })
+                    <div className={module.description}>
+                        <Card.Text>
+                            {towar.description}
+                        </Card.Text>
+                    </div>
+                </Card.Body>
+                <div className={module.price}>
+                    <Card.Footer>
+                        <div className={module.price}><span className="price-product">{towar.price}</span>$</div>
+                        <button className="btn btn-primary" onClick={addToCart}>Add to Cart</button>
+                    </Card.Footer>
+                </div>
+            </Card>
+        </div>
+    ) : (
+        <div>Loading...</div>
+    )
 
     return (
         <div>
             <div className={module.container}>
-                <h1 className={module.text1}>Страница Товара</h1>
+                <h1 className={module.text1}>Product Page</h1>
                 <div className={module.main}>
-                    <CardGroup>
-                        {viewTowars}
-                    </CardGroup>
+                    {viewTowar}
                 </div>
             </div>
         </div>

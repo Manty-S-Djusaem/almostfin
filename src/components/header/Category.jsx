@@ -30,7 +30,7 @@ const Category = (props) => {
 
     function addToCart(event) {
         const currentCard = event.currentTarget.closest('.card')
-    
+
         if (box.find(item => item.id === currentCard.querySelector('.id-card').dataset.id)) {
             const index = box.findIndex(item => item.id === currentCard.querySelector('.id-card').dataset.id)
             let nexBox = box;
@@ -54,34 +54,36 @@ const Category = (props) => {
 
     const viewProducts = products.map((product, index) => {
         return (
-            <div >
-                <Card text="123123" key={index}>
-                    <div className={module.maincards}>
-                        <div className={module.photo}>
-                            <div className="id-card" data-id={product.id}></div>
-                            <div className={module.line2}> <Link to='/products'><Card.Img variant="top" src={product.photo} /></Link>
-                            </div> </div>
-                        <div className={module.cardbody}>
-                            <Card.Body>
-                                <div className={module.name}>
-                                    <Card.Title>
-                                        <h3> {product.name} </h3>
-                                    </Card.Title>
-                                </div>
-                                <div className={module.description}>
-                                    <Card.Text>
-                                        {product.description}
-                                    </Card.Text>
-                                </div>
-                                <Card.Footer>
-                                    <div className={module.price}><span className="price-product" >Цена: {product.price}</span> som</div>
-                                    <div> <button onClick={addToCart} className={module.btncart}>Добавить в корзину</button></div></Card.Footer>
-                            </Card.Body>
-                            <div className={module.line}> </div>
+            <Link to={`/products/${product.id}`} key={index} as="div">
+                <div >
+                    <Card text="123123" key={index}>
+                        <div className={module.maincards}>
+                            <div className={module.photo}>
+                                <div className="id-card" data-id={product.id}></div>
+                                <div className={module.line2}> <Link to='/products'><Card.Img variant="top" src={product.photo} /></Link>
+                                </div> </div>
+                            <div className={module.cardbody}>
+                                <Card.Body>
+                                    <div className={module.name}>
+                                        <Card.Title>
+                                            <h3> {product.name} </h3>
+                                        </Card.Title>
+                                    </div>
+                                    <div className={module.description}>
+                                        <Card.Text>
+                                            {product.description}
+                                        </Card.Text>
+                                    </div>
+                                    <Card.Footer>
+                                        <div className={module.price}><span className="price-product" >Цена: {product.price}</span> som</div>
+                                        <div> <button onClick={addToCart} className={module.btncart}>Добавить в корзину</button></div></Card.Footer>
+                                </Card.Body>
+                                <div className={module.line}> </div>
+                            </div>
                         </div>
-                    </div>
-                </Card>
-            </div>
+                    </Card>
+                </div>
+            </Link>
         )
     })
 
